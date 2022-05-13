@@ -33,7 +33,9 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
     }
     setFrameIndex(index);
 
-    if (index > 35) {
+    console.log("index", index);
+
+    if (index >= 34) {
       setIsShow(2);
     } else if (index >= 15) {
       setIsShow(1);
@@ -41,6 +43,8 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
       setIsShow(0);
     }
   };
+
+  console.log(isShow);
 
   const renderCanvas = () => {
     const context = canvasRef.current.getContext("2d");
@@ -75,7 +79,6 @@ const ImageCanvas = ({ scrollHeight, numFrames, width, height }) => {
         Coca - cola
       </h1>
       <h1 className={`textTransition ${isShow === 1 ? "show" : ""}`}>Coca</h1>
-      <h1 className={`textTransition ${isShow === 2 ? "show" : ""}`}> </h1>
       <canvas ref={canvasRef} />
     </div>
   );
